@@ -71,11 +71,15 @@ Player.prototype.handleInput = function(keyPressed) {
 }
 // Now instantiate your objects.
 
-const enemy1 = new Enemy(0, 70)
+const enemy1 = new Enemy(0, 50)
+const enemy2 = new Enemy(-80, 50)
+const enemy3 = new Enemy (-100, 310)
+const enemy4 = new Enemy(-40, 220)
+const enemy5 = new Enemy(100, 150)
 
 
 // Place all enemy objects in an array called allEnemies
-const allEnemies = [enemy1]
+const allEnemies = [enemy1, enemy2, enemy3, enemy4, enemy5]
 // Place the player object in a variable called player
 
 const player = new Player
