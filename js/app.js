@@ -6,8 +6,8 @@ const Enemy = function(x,y) {
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
     this.sprite = 'images/enemy-bug.png';
-    this.x = 0
-    this.y = 150
+    this.x = x
+    this.y = y
     this.speedX = 5
     this.update()
 };
@@ -71,7 +71,8 @@ Player.prototype.handleInput = function(keyPressed) {
 }
 // Now instantiate your objects.
 
-const enemy1 = new Enemy()
+const enemy1 = new Enemy(0, 70)
+
 
 // Place all enemy objects in an array called allEnemies
 const allEnemies = [enemy1]
