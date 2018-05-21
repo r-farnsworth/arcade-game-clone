@@ -43,25 +43,29 @@ Player.prototype.render = function() {
 }
 
 Player.prototype.handleInput = function(keyPressed) {
-  if (keyPressed === 'left') {
-    console.log('key pressed')
-  } else if (keyPressed === 'right') {
-    console.log('key pressed')
-  } else if (keyPressed === 'up') {
-    console.log('key pressed')
-  } else if (keyPressed === 'down') {
-    console.log('key pressed')
-  }
-  else {
-    return false
-  }
+  if (keyPressed === 'left' && this.x > 0) {
+       this.x -= 101;
+   }
+   if (keyPressed === 'up' && this.y > 0) {
+       this.y -= 83;
+   }
+   if (keyPressed === 'right' && this.x < 350) {
+       this.x += 101;
+   }
+   if (keyPressed === 'down' && this.y < 400) {
+       this.y += 83;
+   }
+
+// when player reaches water, alert user
+   if (this.y < 5)
+
+   setTimeout(function(){ alert("you win!"); }, 500);
 }
 // Now instantiate your objects.
 
 const enemy1 = new Enemy
-const enemy2 = new Enemy(0, 0)
 // Place all enemy objects in an array called allEnemies
-const allEnemies = [enemy1, enemy2]
+const allEnemies = [enemy1]
 // Place the player object in a variable called player
 
 const player = new Player
