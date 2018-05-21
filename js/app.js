@@ -39,7 +39,7 @@ Player.update = function(dt){
 }
 
 Player.render = function() {
-
+  ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 }
 
 Player.handleInput = function(keyPressed) {
