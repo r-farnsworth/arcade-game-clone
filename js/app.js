@@ -38,7 +38,7 @@ Enemy.prototype.render = function() {
 
 const Player = function() {
   this.sprite = 'images/char-boy.png'
-  this.x = 300
+  this.x = 200
   this.y = 400
 }
 
@@ -65,9 +65,19 @@ Player.prototype.handleInput = function(keyPressed) {
    }
 
 // when player reaches water, alert user
-   if (this.y < 5)
+   if (this.y < 5) {
 
-   setTimeout(function(){ alert("you win!"); }, 250);
+   setTimeout(function(){
+     alert("you win!")
+     player.reset()
+   }, 250);
+ }
+
+}
+
+Player.prototype.reset = function(){
+  this.x = 200
+  this.y = 400
 }
 // Now instantiate your objects.
 
