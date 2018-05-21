@@ -29,20 +29,20 @@ Enemy.prototype.render = function() {
 
 
 const Player = function() {
-  this.sprite = 'images/char-horn-girl.png'
+  this.sprite = 'images/char-boy.png'
   this.x = 0
   this.y = 606
 }
 
-Player.update = function(dt){
+Player.prototype.update = function(dt){
 
 }
 
-Player.render = function() {
+Player.prototype.render = function() {
   ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 }
 
-Player.handleInput = function(keyPressed) {
+Player.prototype.handleInput = function(keyPressed) {
   if (keyPressed === 'left') {
     console.log('key pressed')
   } else if (keyPressed === 'right') {
@@ -63,7 +63,7 @@ const enemy1 = new Enemy
 const allEnemies = [enemy1]
 // Place the player object in a variable called player
 
-const player = Player
+const player = new Player
 
 
 // This listens for key presses and sends the keys to your
