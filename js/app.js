@@ -30,8 +30,8 @@ Enemy.prototype.render = function() {
 
 const Player = function() {
   this.sprite = 'images/char-boy.png'
-  this.x = 0
-  this.y = 606
+  this.x = 300
+  this.y = 400
 }
 
 Player.prototype.update = function(dt){
@@ -59,8 +59,9 @@ Player.prototype.handleInput = function(keyPressed) {
 // Now instantiate your objects.
 
 const enemy1 = new Enemy
+const enemy2 = new Enemy(0, 0)
 // Place all enemy objects in an array called allEnemies
-const allEnemies = [enemy1]
+const allEnemies = [enemy1, enemy2]
 // Place the player object in a variable called player
 
 const player = new Player
