@@ -34,6 +34,6 @@ h2 {
   align-items: baseline;
 }
 
- .moves-container, .collisions {
+ .moves-container, .collisions-container {
   margin-right: 10px;
 }

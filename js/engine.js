@@ -82,6 +82,8 @@ var Engine = (function(global) {
         checkCollisions();
     }
 
+
+
     function checkCollisions(){
       // use forEach so if I add more enemies to the array I don't have to write more code
       allEnemies.forEach(function(enemy) {
@@ -91,7 +93,9 @@ var Engine = (function(global) {
             player.x <= enemy.x + 50 &&
             player.y >= enemy.y - 30 &&
             player.y <= enemy.y + 30) {
+              addCollisions()
                 player.reset();
+
             }
       })
     }
@@ -177,7 +181,7 @@ var Engine = (function(global) {
      * those sorts of things. It's only called once by the init() method.
      */
     function reset() {
-        // noop
+
     }
 
     /* Go ahead and load all of the images we know we're going to need to

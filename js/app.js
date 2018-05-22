@@ -1,7 +1,19 @@
 let moves = document.querySelector(".moves")
 
+
 function addMoves(){
   moves.innerHTML++
+}
+
+let collisions = document.querySelector(".collisions")
+
+function addCollisions(){
+  collisions.innerHTML++
+}
+
+function gameReset(){
+  collisions.innerHTML = 0
+  moves.innerHTML = 0
 }
 
 
@@ -77,13 +89,13 @@ Player.prototype.handleInput = function(keyPressed) {
   }
 
 
-
   // when player reaches water, alert user
   if (this.y < 5) {
 
     setTimeout(function() {
       alert("you win!")
       player.reset()
+      gameReset()
     }, 250)
   }
 
@@ -92,7 +104,7 @@ Player.prototype.handleInput = function(keyPressed) {
 Player.prototype.reset = function() {
   this.x = 200
   this.y = 400
-  moves.innerHTML = 0
+
 }
 
 
