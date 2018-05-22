@@ -1,3 +1,38 @@
 body {
     text-align: center;
+    font-size: 16px;
+    background-color: #dfd9c8;
+    color: #554348;
+    font-family: "Lato", sans-serif;
+
+
+}
+
+h1 {
+  font-family: "Baloo Chettan", Helvetica, sans-serif;
+  font-size: 64px;
+  margin: 0;
+}
+
+h2 {
+  margin: 0;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.score-panel {
+  width: 300px;
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-around;
+  align-items: baseline;
+}
+
+ .moves-container, .collisions {
+  margin-right: 10px;
 }
