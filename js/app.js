@@ -1,3 +1,10 @@
+let moves = document.querySelector(".moves")
+
+function addMoves(){
+  moves.innerHTML++
+}
+
+
 // Enemies our player must avoid
 const Enemy = function(x, y, speed) {
   // Variables applied to each of our instances go here
@@ -53,16 +60,23 @@ Player.prototype.render = function() {
 Player.prototype.handleInput = function(keyPressed) {
   if (keyPressed === 'left' && this.x > 0) {
     this.x -= 101;
+    addMoves()
   }
   if (keyPressed === 'up' && this.y > 0) {
     this.y -= 83;
+    addMoves()
   }
   if (keyPressed === 'right' && this.x < 350) {
     this.x += 101;
+    addMoves()
+
   }
   if (keyPressed === 'down' && this.y < 400) {
     this.y += 83;
+    addMoves()
   }
+
+
 
   // when player reaches water, alert user
   if (this.y < 5) {
@@ -78,6 +92,7 @@ Player.prototype.handleInput = function(keyPressed) {
 Player.prototype.reset = function() {
   this.x = 200
   this.y = 400
+  moves.innerHTML = 0
 }
 
 
