@@ -79,8 +79,24 @@ var Engine = (function(global) {
      */
     function update(dt) {
         updateEntities(dt);
-        // checkCollisions();
+        checkCollisions();
     }
+
+    function checkCollisions(){
+      // use forEach so if I add more enemies to the array I don't have to write more code
+      allEnemies.forEach(function(enemy) {
+        // if the coordinates for each object overlap, there should be a collision
+        // TODO: animate the player in some way (flashing? decrease size?)
+        if (player.x >= enemy.x - 50 &&
+            player.x <= enemy.x + 50 &&
+            player.y >= enemy.y - 30 &&
+            player.y <= enemy.y + 30) {
+                player.reset();
+            }
+      })
+    }
+
+
 
     /* This is called by the update function and loops through all of the
      * objects within your allEnemies array as defined in app.js and calls
@@ -173,7 +189,7 @@ var Engine = (function(global) {
         'images/water-block.png',
         'images/grass-block.png',
         'images/enemy-bug.png',
-        'images/char-boy.png'
+        'images/char-horn-girl.png'
     ]);
     Resources.onReady(init);
 

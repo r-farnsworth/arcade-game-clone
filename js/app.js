@@ -21,11 +21,9 @@ Enemy.prototype.update = function(dt) {
   // the board is 505px wide, so if the enemy reaches the end of the board
   // it needs to be reset so it looks as if another is coming
   if (this.x > 505) {
-    this.x = 90
+    this.x = -90
     this.speedX = Math.floor(Math.random() * 3 + 2)
   }
-
-  // handle collision here
 
 }
 
@@ -39,7 +37,7 @@ Enemy.prototype.render = function() {
 // a handleInput() method.
 
 const Player = function() {
-  this.sprite = 'images/char-boy.png'
+  this.sprite = 'images/char-horn-girl.png'
   this.x = 200
   this.y = 400
 }
