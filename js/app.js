@@ -1,21 +1,8 @@
 let moves = document.querySelector(".moves")
 const modal = document.querySelector(".modal")
 const playAgainButton = document.querySelector(".play-again")
-
-function addMoves(){
-  moves.innerHTML++
-}
-
-let collisions = document.querySelector(".collisions")
-
-function addCollisions(){
-  collisions.innerHTML++
-}
-
-function gameReset(){
-  collisions.innerHTML = 0
-  moves.innerHTML = 0
-}
+const princess = "images/char-princess-girl.png"
+const deadPrincess = "images/char-deadprincess.png"
 
 
 // Enemies our player must avoid
@@ -56,8 +43,8 @@ Enemy.prototype.render = function() {
 // This class requires an update(), render() and
 // a handleInput() method.
 
-const Player = function() {
-  this.sprite = 'images/char-horn-girl.png'
+const Player = function(sprite) {
+  this.sprite = sprite
   this.x = 200
   this.y = 400
 }
@@ -92,12 +79,10 @@ Player.prototype.handleInput = function(keyPressed) {
 
   // when player reaches water, alert user
   if (this.y < 5) {
-
-
-      modal.classList.add("show")
-      playAgainButton.addEventListener("click", closeModal)
-      player.reset()
-      gameReset()
+      setTimeout(function(){
+        modal.classList.add("show")
+        playAgainButton.addEventListener("click", closeModal)
+      },500)
     }
   }
 
@@ -113,6 +98,7 @@ function closeModal() {
 Player.prototype.reset = function() {
   this.x = 200
   this.y = 400
+  this.sprite = princess
 
 }
 
@@ -129,7 +115,7 @@ const enemy5 = new Enemy(100, 150, 3)
 const allEnemies = [enemy1, enemy2, enemy3, enemy4, enemy5]
 
 // Place the player object in a variable called player
-const player = new Player
+let player = new Player(princess)
 
 
 // This listens for key presses and sends the keys to your
