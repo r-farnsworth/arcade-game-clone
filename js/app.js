@@ -1,5 +1,6 @@
 let moves = document.querySelector(".moves")
-
+const modal = document.querySelector(".modal")
+const playAgainButton = document.querySelector(".play-again")
 
 function addMoves(){
   moves.innerHTML++
@@ -92,14 +93,22 @@ Player.prototype.handleInput = function(keyPressed) {
   // when player reaches water, alert user
   if (this.y < 5) {
 
-    setTimeout(function() {
-      alert("you win!")
+
+      modal.classList.add("show")
+      playAgainButton.addEventListener("click", closeModal)
       player.reset()
       gameReset()
-    }, 250)
+    }
   }
 
+
+
+function closeModal() {
+  modal.classList.remove("show")
+  player.reset()
+  gameReset()
 }
+
 
 Player.prototype.reset = function() {
   this.x = 200
