@@ -93,10 +93,10 @@ var Engine = (function(global) {
         player.x <= enemy.x + 70 &&
         player.y >= enemy.y - 30 &&
         player.y <= enemy.y + 30) {
-        addCollisions()
-        player.reset()
-        playerisDead()
-        reanimatePlayer()
+        addCollisions();
+        player.reset();
+        playerisDead();
+        reanimatePlayer();
 
     }
   })
@@ -105,11 +105,11 @@ var Engine = (function(global) {
   function reanimatePlayer() {
       setTimeout(function() {
       player.reset()
-    }, 250)
+    }, 250);
   }
 
   function playerisDead(){
-    player.sprite = deadPrincess
+    player.sprite = deadPrincess;
   }
 
 
@@ -220,17 +220,17 @@ var Engine = (function(global) {
 
 
 function addMoves() {
-  moves.innerHTML++
-}
+  moves.innerHTML++;
+};
 
-let collisions = document.querySelector(".collisions")
+let collisions = document.querySelector(".collisions");
 
 function addCollisions() {
-  collisions.innerHTML++
-}
+  collisions.innerHTML++;
+};
 
 
 function gameReset() {
-  collisions.innerHTML = 0
-  moves.innerHTML = 0
-}
+  collisions.innerHTML = 0;
+  moves.innerHTML = 0;
+};

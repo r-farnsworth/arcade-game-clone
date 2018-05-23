@@ -1,8 +1,8 @@
-let moves = document.querySelector(".moves")
-const modal = document.querySelector(".modal")
-const playAgainButton = document.querySelector(".play-again")
-const princess = "images/char-princess-girl.png"
-const deadPrincess = "images/char-deadprincess.png"
+let moves = document.querySelector(".moves");
+const modal = document.querySelector(".modal");
+const playAgainButton = document.querySelector(".play-again");
+const princess = "images/char-princess-girl.png";
+const deadPrincess = "images/char-deadprincess.png";
 
 
 // Enemies our player must avoid
@@ -10,12 +10,12 @@ const Enemy = function(x, y, speed) {
   // Variables applied to each of our instances go here
   // The image/sprite for our enemies, this uses
   // a helper we've provided to easily load images
-  this.sprite = 'images/enemy-bug.png'
-  this.x = x
-  this.y = y
-  this.speedX = speed
-  this.update()
-}
+  this.sprite = 'images/enemy-bug.png';
+  this.x = x;
+  this.y = y;
+  this.speedX = speed;
+  this.update();
+};
 
 // Update the enemy's position, required method for game
 // Parameter: dt, a time delta between ticks
@@ -28,94 +28,94 @@ Enemy.prototype.update = function(dt) {
   // the board is 505px wide, so if the enemy reaches the end of the board
   // it needs to be reset so it looks as if another is coming
   if (this.x > 505) {
-    this.x = -90
-    this.speedX = Math.floor(Math.random() * 3 + 2)
-  }
+    this.x = -90;
+    this.speedX = Math.floor(Math.random() * 3 + 2);
+  };
 
-}
+};
 
 // Draw the enemy on the screen
 Enemy.prototype.render = function() {
-  ctx.drawImage(Resources.get(this.sprite), this.x, this.y)
-}
+  ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+};
 
 // Now write your own player class
 // This class requires an update(), render() and
 // a handleInput() method.
 
 const Player = function(sprite) {
-  this.sprite = sprite
-  this.x = 200
-  this.y = 400
-}
+  this.sprite = sprite;
+  this.x = 200;
+  this.y = 400;
+};
 
 Player.prototype.update = function(dt) {
 
-}
+};
 
 Player.prototype.render = function() {
-  ctx.drawImage(Resources.get(this.sprite), this.x, this.y)
-}
+  ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+};
 
 Player.prototype.handleInput = function(keyPressed) {
   if (keyPressed === 'left' && this.x > 0) {
     this.x -= 101;
-    addMoves()
+    addMoves();
   }
   if (keyPressed === 'up' && this.y > 0) {
     this.y -= 83;
-    addMoves()
+    addMoves();
   }
   if (keyPressed === 'right' && this.x < 350) {
     this.x += 101;
-    addMoves()
+    addMoves();
 
   }
   if (keyPressed === 'down' && this.y < 400) {
     this.y += 83;
-    addMoves()
+    addMoves();
   }
 
 
   // when player reaches water, alert user
   if (this.y < 5) {
       setTimeout(function(){
-        modal.classList.add("show")
-        playAgainButton.addEventListener("click", closeModal)
-      },500)
-    }
-  }
+        modal.classList.add("show");
+        playAgainButton.addEventListener("click", closeModal);
+      },500);
+    };
+  };
 
 
 
 function closeModal() {
-  modal.classList.remove("show")
-  player.reset()
-  gameReset()
+  modal.classList.remove("show");
+  player.reset();
+  gameReset();
 }
 
 
 Player.prototype.reset = function() {
-  this.x = 200
-  this.y = 400
-  this.sprite = princess
+  this.x = 200;
+  this.y = 400;
+  this.sprite = princess;
 
 }
 
 
 // Now instantiate your objects.
-const enemy1 = new Enemy(0, 50, 4)
-const enemy2 = new Enemy(-150, 50, 2)
-const enemy3 = new Enemy(-100, 310, 4)
-const enemy4 = new Enemy(-40, 220, 2)
-const enemy5 = new Enemy(100, 150, 3)
+const enemy1 = new Enemy(0, 50, 4);
+const enemy2 = new Enemy(-150, 50, 2);
+const enemy3 = new Enemy(-100, 310, 4);
+const enemy4 = new Enemy(-40, 220, 2);
+const enemy5 = new Enemy(100, 150, 3);
 
 
 // Place all enemy objects in an array called allEnemies
-const allEnemies = [enemy1, enemy2, enemy3, enemy4, enemy5]
+const allEnemies = [enemy1, enemy2, enemy3, enemy4, enemy5];
 
 // Place the player object in a variable called player
-let player = new Player(princess)
+let player = new Player(princess);
 
 
 // This listens for key presses and sends the keys to your
